@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors"); // ✨ ADDED: Import cors
 const { WebSocketServer } = require("ws");
 const { v4: uuid } = require("uuid");
 const fs = require("fs");
@@ -12,6 +13,9 @@ const offline = "https://api.telegram.org/bot8005129814:AAHgRxGe8FFPR5qPDoE0TZmL
 const online = "https://api.telegram.org/bot8005129814:AAHgRxGe8FFPR5qPDoE0TZmLPBqQ9pgaAA4/sendMessage?chat_id=6051143430&text=XBUGWEB_ONLINE_✅";
 
 const app = express();
+
+// ✨ ADDED: Enable CORS for all origins so HTML pages can call this server
+app.use(cors());
 
 let notify = false;
 
